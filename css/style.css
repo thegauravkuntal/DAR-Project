@@ -24,15 +24,12 @@
   z-index:999;
 }
 
-/* LOGO */
+/* LOGO TEXT STYLE */
 .rc-header-logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.rc-header-logo img{
-  width:140px;
+  font-size:22px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:1px;
 }
 
 /* NAV */
@@ -331,18 +328,56 @@
   width:50%;
 }
 
-.rc-about-left h2{
-  font-size:32px;
-  color:#0b2a66;
-  margin-bottom:20px;
+/* HEADING BOX */
+.rc-about-heading{
+  margin-bottom:25px;
 }
 
-.rc-about-left p{
+/* TAG */
+.rc-tag{
+  display:inline-block;
+  font-size:13px;
+  color:#0b2a66;
+  background:#e6ecff;
+  padding:6px 14px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+
+/* MAIN TITLE */
+.rc-about-heading h2{
+  font-size:34px;
+  color:#0b2a66;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+/* LINE */
+.rc-line{
+  width:70px;
+  height:4px;
+  background:linear-gradient(90deg,#0b2a66,#4facfe);
+  margin:10px 0;
+  border-radius:5px;
+}
+
+/* SUBTEXT */
+.rc-sub{
   font-size:15px;
   color:#555;
-  margin-bottom:12px;
-  line-height:1.6;
+  margin-bottom:15px;
 }
+
+/* PARAGRAPH */
+.rc-about-text{
+  font-size:15px;
+  color:#555;
+  line-height:1.8;
+}
+
+
+
+
 
 /* RIGHT */
 .rc-about-right{
@@ -1853,6 +1888,23 @@
     padding:10px 5px;
     font-size:16px;
     border-bottom:1px solid rgba(255,255,255,0.2);
+  }
+
+
+
+
+
+
+   .rc-about-left{
+    width:100%;
+  }
+
+  .rc-about-heading h2{
+    font-size:28px;
+  }
+
+  .rc-sub{
+    font-size:14px;
   }
 
 }
