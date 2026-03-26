@@ -1772,51 +1772,87 @@
 
 @media(max-width:768px){
 
-  /* container ko row me hi rakho */
+
+
+ /* HERO HEIGHT INCREASE */
+  .rc-hero{
+    height:300px;   /* 👈 pehle 420 tha → ab bada */
+  }
+
+  /* TEXT SIZE */
+  .rc-hero-overlay h1{
+    font-size:32px;
+    line-height:1.2;
+    margin-top: 50px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* container */
   .rc-container{
     flex-direction:row;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
   }
 
-  /* logo left */
-  .rc-header-logo{
-    flex:1;
-  }
-
-  /* hamburger right */
+  /* hamburger */
   .rc-menu-toggle{
     display:block;
-    position:static; /* ❗ important (absolute hata diya) */
     font-size:26px;
     color:#fff;
     cursor:pointer;
   }
 
-  /* nav niche rahe */
-  .rc-header-nav{
-    position:absolute;
-    top:60px;
-    left:0;
-    width:100%;
-    background:#0f1b3d;
-
-    flex-direction:column;
-    align-items:center;
-
-    max-height:0;
-    overflow:hidden;
-    transition:0.4s;
-  }
-
-  .rc-header-nav.active{
-    max-height:300px;
-    padding:15px 0;
-  }
-
   /* brand hide */
   .rc-header-brand{
     display:none;
+  }
+
+  /* ===== MENU (LEFT SIDE SMALL BOX) ===== */
+  .rc-header-nav{
+    position:absolute;
+    top:60px;        /* 👈 navbar ke niche */
+    left:-100%;      /* hidden left side */
+    width:220px;     /* 👈 full screen nahi */
+    background:#0f1b3d;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+
+    padding:15px 15px;
+    border-radius:8px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+
+    transition:0.3s ease;
+    z-index:999;
+  }
+
+  /* open */
+  .rc-header-nav.active{
+    left:10px; /* 👈 thoda gap left se */
+  }
+
+  /* links */
+  .rc-header-nav a{
+    width:100%;
+    padding:10px 5px;
+    font-size:16px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
   }
 
 }
