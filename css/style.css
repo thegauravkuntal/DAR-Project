@@ -1,7 +1,6 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 
 
-
 /* CONTAINER */
 .rc-container{
   width:90%;
@@ -9,9 +8,9 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  position:relative; /* important */
+  position:relative;
 }
-
+       
 /* HEADER */
 .rc-header{
   background:#0f1b3d;
@@ -24,31 +23,45 @@
   z-index:999;
 }
 
-/* LOGO TEXT STYLE */
+/* ❌ REMOVE LOGO COMPLETELY */
 .rc-header-logo{
-  font-size:22px;
-  font-weight:700;
-  color:#fff;
-  letter-spacing:1px;
+  display:none;
 }
 
-/* NAV */
+/* LEFT BRAND (MAIN FIX) */
+.rc-header-brand{
+  text-align:left;
+}
+
+.rc-header-brand h2{
+  color:#fff;
+  font-size:22px;
+  font-weight:600;
+}
+
+.rc-header-brand p{
+  font-size:11px;
+  color:#fff;
+}
+
+/* NAV CENTER */
 .rc-header-nav{
   display:flex;
   align-items:center;
+  margin:auto; /* 👈 center trick */
 }
 
 .rc-header-nav a{
-  margin:0 10px;
+  margin:0 12px;
   text-decoration:none;
-  color:white;
+  color:#fff;
   font-weight:600;
   font-size:14px;
   position:relative;
   padding-bottom:5px;
 }
 
-/* underline effect */
+/* underline */
 .rc-header-nav a::after{
   content:"";
   position:absolute;
@@ -64,19 +77,7 @@
   width:100%;
 }
 
-/* BRAND */
-.rc-header-brand h2{
-  color:white;
-  font-size:20px;
-}
-
-.rc-header-brand p{
-  font-size:11px;
-  color:white;
-}
-
-
-/* HAMBURGER DEFAULT (DESKTOP HIDE) */
+/* HAMBURGER */
 .rc-menu-toggle{
   display:none;
   font-size:26px;
@@ -99,21 +100,46 @@
   overflow:hidden;
 }
 
-/* BG IMAGE */
-.rc-hero-bg{
+/* ===== SLIDER ===== */
+.rc-hero-slider{
   position:absolute;
   width:100%;
   height:100%;
-  object-fit:cover;
   top:0;
   left:0;
   z-index:1;
 }
 
-/* OVERLAY */
+.rc-hero-slider img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1s ease-in-out;
+}
+
+/* ACTIVE IMAGE */
+.rc-hero-slider img.active{
+  opacity:1;
+}
+
+/* ===== DARK OVERLAY (optional but premium) ===== */
+.rc-hero::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.35);
+  z-index:2;
+}
+
+/* ===== CONTENT ===== */
 .rc-hero-overlay{
   position:relative;
-  z-index:2;
+  z-index:3;
   height:100%;
   display:flex;
   align-items:center;
@@ -123,10 +149,16 @@
 }
 
 /* LEFT */
-.rc-hero-left{max-width:50%}
+.rc-hero-left{
+  max-width:50%;
+}
 
+.rc-hero-left h1{
+  font-size:42px;
+  font-weight:700;
+}
 
-
+/* TAGS */
 .rc-hero-companies span{
   display:inline-block;
   background:#fff;
@@ -141,8 +173,6 @@
 .rc-hero-right{
   position:relative;
 }
-
-
 
 
 
@@ -1807,37 +1837,27 @@
 
 @media(max-width:768px){
 
-
-
- /* HERO HEIGHT INCREASE */
-  .rc-hero{
-    height:300px;   /* 👈 pehle 420 tha → ab bada */
+  /* ===== HERO FIX ===== */
+ .rc-hero{
+    height:380px;
   }
 
-  /* TEXT SIZE */
-  .rc-hero-overlay h1{
-    font-size:32px;
-    line-height:1.2;
-    margin-top: 50px;
+  .rc-hero-overlay{
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
   }
 
+  .rc-hero-left{
+    max-width:100%;
+  }
 
+  .rc-hero-left h1{
+    font-size:28px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* container */
+  /* ===== HEADER FIX ===== */
   .rc-container{
     flex-direction:row;
     justify-content:space-between;
@@ -1852,24 +1872,29 @@
     cursor:pointer;
   }
 
-  /* brand hide */
-  .rc-header-brand{
+  /* ❌ REMOVE ye (important) */
+  /* .rc-header-brand{
     display:none;
+  } */
+
+  /* brand ko chhota kar */
+  .rc-header-brand h2{
+    font-size:16px;
   }
 
-  /* ===== MENU (LEFT SIDE SMALL BOX) ===== */
+  /* ===== MENU ===== */
   .rc-header-nav{
     position:absolute;
-    top:60px;        /* 👈 navbar ke niche */
-    left:-100%;      /* hidden left side */
-    width:220px;     /* 👈 full screen nahi */
+    top:60px;
+    left:-100%;
+    width:220px;
     background:#0f1b3d;
 
     display:flex;
     flex-direction:column;
     align-items:flex-start;
 
-    padding:15px 15px;
+    padding:15px;
     border-radius:8px;
     box-shadow:0 10px 30px rgba(0,0,0,0.3);
 
@@ -1877,12 +1902,10 @@
     z-index:999;
   }
 
-  /* open */
   .rc-header-nav.active{
-    left:10px; /* 👈 thoda gap left se */
+    left:10px;
   }
 
-  /* links */
   .rc-header-nav a{
     width:100%;
     padding:10px 5px;
@@ -1890,21 +1913,23 @@
     border-bottom:1px solid rgba(255,255,255,0.2);
   }
 
-
-
-
-
-
-   .rc-about-left{
+  /* ===== ABOUT ===== */
+  .rc-about-left{
     width:100%;
   }
 
   .rc-about-heading h2{
-    font-size:28px;
+    font-size:26px;
   }
 
   .rc-sub{
     font-size:14px;
   }
+
+
+
+
+
+  
 
 }
