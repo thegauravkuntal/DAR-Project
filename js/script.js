@@ -154,6 +154,8 @@ window.addEventListener("scroll", showSilicone);
 const japan = document.querySelector("#japan .japan-container");
 
 function showJapan() {
+    if (!japan) return;
+
     const trigger = window.innerHeight * 0.85;
     const top = japan.getBoundingClientRect().top;
 
@@ -164,7 +166,8 @@ function showJapan() {
 
 window.addEventListener("scroll", showJapan);
 
-
+/* run once on load */
+showJapan();
 
 
 
